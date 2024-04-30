@@ -25,6 +25,7 @@ public class Board : MonoBehaviour
 
     public List<GameObject> ListAvaiblecards;
     public CardImages cardImages;
+    public GameObject cartaPrueba;
     private void Awake()
     {
         RectTransform CardRectTransform = card.GetComponent<RectTransform>();
@@ -66,19 +67,10 @@ public class Board : MonoBehaviour
 
         }
     }
-    public void SwapCards()
-    {
-        Debug.Log("estoy aqui");
-        // cardImages = GetComponent<CardImages>();
-        if(cardImages.GetFrontImage() == null)
-        {
-            Debug.Log("FrontImage is null");
-        }
-        cardImages.GetBackImage().gameObject.transform.Rotate(0, 90, 0);
-        // cardImages.gameObject.transform.Rotate(0, 45, 0);
-        Debug.Log("SwapCards");
-
-    }
+//     public void SwapCardss()
+// {
+//     cartaPrueba.transform.Rotate(0, 10, 0);
+// }
    
     void CameraPosition()
     {
@@ -106,8 +98,4 @@ public class Board : MonoBehaviour
 
     }
 
-    void Update()
-    {
-
-    }
-}
+  }

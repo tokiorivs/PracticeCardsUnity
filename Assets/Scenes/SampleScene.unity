@@ -414,6 +414,7 @@ MonoBehaviour:
   - {fileID: 4889060087976694685, guid: 1e8e6482c3df766dbba0014cdf03f9d2, type: 3}
   - {fileID: 8211159372892476365, guid: 2cbda8a86987d2eae85c3f0fde533b75, type: 3}
   cardImages: {fileID: 0}
+  cartaPrueba: {fileID: 0}
 --- !u!4 &832979847
 Transform:
   m_ObjectHideFlags: 0

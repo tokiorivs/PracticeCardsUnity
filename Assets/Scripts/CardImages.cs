@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class CardImages : MonoBehaviour
 {
-    [SerializeField]public GameObject frontImage;
-    [SerializeField] public GameObject backImage;
-    public GameObject GetFrontImage()
+    [SerializeField] GameObject frontImage;
+    [SerializeField] GameObject backImage;
+    string saludo = "Hola";
+    public void SwapCard()
     {
-        return frontImage;
+        Debug.Log("en el cardTwist");
+        frontImage.transform.Rotate(0, 90, 0);
+
     }
-    public GameObject GetBackImage()
-    {
-        return backImage;
-    }
+    
 }

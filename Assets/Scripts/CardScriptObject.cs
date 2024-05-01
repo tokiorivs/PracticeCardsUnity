@@ -9,7 +9,15 @@ public class CardScriptObject : ScriptableObject
 {
     [SerializeField] GameObject cardButton;
     [SerializeField] bool isFlipped;
+    [SerializeField] bool isMatched = false;
     [SerializeField] bool isInvoke = false;
+
+    void Awake()
+    {
+        isFlipped = false;
+        isMatched = false;
+        isInvoke = false;
+        }
     public enum CardType { 
         bloqueo,
         cero,
@@ -21,19 +29,34 @@ public class CardScriptObject : ScriptableObject
         siete};
     public CardType cardType;
 
-    public bool GetIsInvoke()
+ 
+    public bool GetItsMatched()
     {
-        return isInvoke;
+        return isMatched;
     }
-    public void SetIsInvoke(bool value)
+    public void SetIsMatched(bool value)
     {
-        isInvoke = value;
+        isMatched = value;
     }
 
     public bool GetIsFlipped()
     {
         return isFlipped;
     }
+       public void SetIsFlipped(bool value)
+    {
+        isFlipped = value;
+    }
+    public bool GetIsInvoke()
+    {
+        return isInvoke;
+    }
+    public bool SetIsInvoke(bool value)
+    {
+        isInvoke = value;
+        return isInvoke;
+    }
+    
     public GameObject GetCardButton()
     {
         return cardButton;

@@ -385,6 +385,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1294604d2d98d4e14aae8228c0cd21c8, type: 2}
   - {fileID: 11400000, guid: 76f768d4ba9f7d52fafd6d38bbbba42a, type: 2}
   - {fileID: 11400000, guid: 0267bd878221402d980fdea970c43518, type: 2}
+  - {fileID: 11400000, guid: edf77a64c3ea9688281b0dac80ee75f6, type: 2}
+  - {fileID: 11400000, guid: e7681a95fdc596abfb2980f68290f84c, type: 2}
+  - {fileID: 11400000, guid: 8fe6e7f754787da2c87e5f000d99ca65, type: 2}
+  - {fileID: 11400000, guid: d53155a9800f275ffbe9bfed9acbe38f, type: 2}
+  - {fileID: 11400000, guid: c78a49f06ca6641b7b32ee8bfb415861, type: 2}
+  - {fileID: 11400000, guid: 193b65e6b491bea41967337d99bff8fd, type: 2}
+  - {fileID: 11400000, guid: 6fcadb83aebe405a8b8245c6a1aa8764, type: 2}
+  - {fileID: 11400000, guid: 2b3538be41f6fec1daa8bc207c4ee67e, type: 2}
   ListVerificatedCards: []
   card: {fileID: 2775403599080524157, guid: ec6728087268aa31c897c29888a94b9d, type: 3}
   availableCards:

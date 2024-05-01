@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26fdf06a5a47b93f9b3a63478afb1faa, type: 3}
-  m_Name: card 6
+  m_Name: card 8
   m_EditorClassIdentifier: 
-  cardButton: {fileID: 8011833224064083236, guid: 1e8e6482c3df766dbba0014cdf03f9d2, type: 3}
+  cardButton: {fileID: 4722092492191106113, guid: 46dfe7995be3268b7bbd48e80f1b3fbc, type: 3}
   isFlipped: 0
   isMatched: 0
   isInvoke: 0
-  cardType: 6
+  cardType: 0

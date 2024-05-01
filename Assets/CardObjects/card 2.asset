@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardButton: {fileID: 5924073582866361465, guid: 47894377d18c23e95a0cd1f3af592dc2, type: 3}
   isFlipped: 0
+  isMatched: 0
   isInvoke: 0
   cardType: 2

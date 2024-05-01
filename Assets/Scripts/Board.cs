@@ -18,6 +18,8 @@ public class Board : MonoBehaviour
     public List<CardScriptObject> ListSelectedCards;
     public List<CardScriptObject> ListVerificatedCards;
 
+    [SerializeField] List<CardScriptObject> pairCards;
+
     public GameObject card;
     float newPosX;
     float newPosY;
@@ -26,16 +28,19 @@ public class Board : MonoBehaviour
     public List<GameObject> ListAvaiblecards;
     public CardImages cardImages;
     public GameObject cartaPrueba;
+    public bool verifyCard = false;
     private void Awake()
     {
         RectTransform CardRectTransform = card.GetComponent<RectTransform>();
         cardWidth = CardRectTransform.sizeDelta.x;
         cardHeight = CardRectTransform.sizeDelta.y;
+        
     }
 
     void Start()
     {
-        // CameraPosition();
+        // CameraPosition();}
+        Debug.Log("empezo el start");
         CreateBoard();
         SetupCards();
         ListAvaiblecards = new List<GameObject>(availableCards);
@@ -45,6 +50,8 @@ public class Board : MonoBehaviour
     }
     void SetupCards()
     {
+
+        restartGame();
         for (int i = 0; i < boardWidth; i++)
         {
 
@@ -53,25 +60,35 @@ public class Board : MonoBehaviour
                 float coordX = (i * (cardWidth * 1.05f)) + (1080 / 2) + ((boardWidth / 2) * -(cardWidth));
                 float coordY = (j * (cardHeight * 1.05f)) + (1920 / 2) + ((boardHeight / 2) * -(cardHeight));
 
-                // var selectedCard = ListAvaiblecards[UnityEngine.Random.Range(0, ListAvaiblecards.Count)];
+                //creamos una nueva carta de forma random de la lista de 16 scriptable cards disponibles
                 var selectedCardScriptObject = ListSelectedCards[UnityEngine.Random.Range(0, ListSelectedCards.Count)];
-                var CardScriptObject = selectedCardScriptObject.GetCardButton();    
-                //creamos un nuevo componente
-                GameObject newCard = Instantiate(CardScriptObject, new Vector3(coordX, coordY, -4), Quaternion.identity);
+                if (selectedCardScriptObject.GetIsInvoke()==false)
+                {
+                    var CardScriptObject = selectedCardScriptObject.GetCardButton();
+                    //creamos un nuevo componente
+                    GameObject newCard = Instantiate(CardScriptObject, new Vector3(coordX, coordY, -4), Quaternion.identity);
+                    newCard.transform.SetParent(this.transform);
+                    //cambiamos el estado a invocado para que no se vuelva a repetir en el tablero
+                    selectedCardScriptObject.SetIsInvoke(true);
+                }else
+                {
+                    Debug.Log("se repitio la carta");
+                }
 
-                newCard.transform.SetParent(this.transform);
-                newCard.GetComponent<Card>()?.Setup(i, j, this);
-                // ListAvaiblecards.Remove(selectedCard);
-                // listCardScriptObjects.Remove(selectedCardScriptObject);
             }
 
         }
     }
-//     public void SwapCardss()
-// {
-//     cartaPrueba.transform.Rotate(0, 10, 0);
-// }
-   
+
+    void restartGame()
+    {
+        for( int i = 0; i < ListSelectedCards.Count; i++)
+        {
+           ListSelectedCards[i].SetIsInvoke(false); 
+           Debug.Log("la carta "+ ListSelectedCards[i] +"esta en modo " +ListSelectedCards[i].GetIsInvoke());
+        }
+    }
+
     void CameraPosition()
     {
         newPosX = screenWidth / 2;
@@ -98,4 +115,4 @@ public class Board : MonoBehaviour
 
     }
 
-  }
+}

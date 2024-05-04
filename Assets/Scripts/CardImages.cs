@@ -8,18 +8,30 @@ public class CardImages : MonoBehaviour
     [SerializeField] GameObject frontImage;
     [SerializeField] GameObject backImage;
     Board board;
+    bool verifyCardEvent;
+
     void Start()
     {
         board = FindObjectOfType<Board>();
+        verifyCardEvent = board.verifyCardEvent;
+        
     }
-    string saludo = "Hola";
+    public GameObject getFrontImage()
+    {
+        Debug.Log("se añadio el frontImage");
+        return frontImage;
+    }
+    public GameObject getBackImage()
+    {
+        return backImage;
+    }
 
     // la carta se voltea
     // se devuelve el card Type
     // si ha sido matcheada
     public void FlipCard()
     {
-        if(board.verifyCard == false)
+        if( !verifyCardEvent)
         {
          Debug.Log("estamos en el flipCard");
         }
@@ -27,8 +39,9 @@ public class CardImages : MonoBehaviour
     public void SwapCard()
     {
         FlipCard();
+        board.saludo();
         Debug.Log("en el cardTwist");
-        frontImage.transform.Rotate(0, 90, 0);
+        backImage.transform.Rotate(0, 90, 0);
 
     }
     

@@ -17,6 +17,7 @@ public class Board : MonoBehaviour
 
     public List<CardScriptObject> ListSelectedCards;
     public List<CardScriptObject> ListVerificatedCards;
+    // public List<CardScriptObject> NewListSelectedCards;
 
     [SerializeField] List<CardScriptObject> pairCards;
 
@@ -28,7 +29,12 @@ public class Board : MonoBehaviour
     public List<GameObject> ListAvaiblecards;
     public CardImages cardImages;
     public GameObject cartaPrueba;
-    public bool verifyCard = false;
+    public bool verifyCardEvent = false;
+    CardScriptObject cardOne;
+    CardScriptObject cardTwo;
+
+
+
     private void Awake()
     {
         RectTransform CardRectTransform = card.GetComponent<RectTransform>();
@@ -55,29 +61,44 @@ public class Board : MonoBehaviour
         for (int i = 0; i < boardWidth; i++)
         {
 
-            for (int j = 0; j < boardHeight; j++)
+            int j = 0;
+            while ( j < boardHeight)
             {
                 float coordX = (i * (cardWidth * 1.05f)) + (1080 / 2) + ((boardWidth / 2) * -(cardWidth));
                 float coordY = (j * (cardHeight * 1.05f)) + (1920 / 2) + ((boardHeight / 2) * -(cardHeight));
 
                 //creamos una nueva carta de forma random de la lista de 16 scriptable cards disponibles
                 var selectedCardScriptObject = ListSelectedCards[UnityEngine.Random.Range(0, ListSelectedCards.Count)];
+                bool CardStateInvoke = selectedCardScriptObject.GetIsInvoke();
                 if (selectedCardScriptObject.GetIsInvoke()==false)
                 {
+                    Debug.Log("pasaste, el estado de la carta seleccionada es " + CardStateInvoke);
+
                     var CardScriptObject = selectedCardScriptObject.GetCardButton();
                     //creamos un nuevo componente
                     GameObject newCard = Instantiate(CardScriptObject, new Vector3(coordX, coordY, -4), Quaternion.identity);
                     newCard.transform.SetParent(this.transform);
                     //cambiamos el estado a invocado para que no se vuelva a repetir en el tablero
                     selectedCardScriptObject.SetIsInvoke(true);
+                    j++;
                 }else
                 {
-                    Debug.Log("se repitio la carta");
+                    Debug.Log("no paso, el estado de la carta es " + selectedCardScriptObject.GetIsInvoke());
+
                 }
 
             }
 
         }
+    }
+    public void saludo()
+    {
+        Debug.Log("saludo");
+    }
+    public void compareCards(CardScriptObject cardOne, CardScriptObject cardTwo)
+    {
+        
+
     }
 
     void restartGame()

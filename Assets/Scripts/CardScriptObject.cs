@@ -8,16 +8,13 @@ using UnityEngine.UI;
 public class CardScriptObject : ScriptableObject
 {
     [SerializeField] GameObject cardButton;
-    [SerializeField] bool isFlipped;
+    [SerializeField] bool isFlipped = false;
     [SerializeField] bool isMatched = false;
     [SerializeField] bool isInvoke = false;
+    CardImages cardImages;
+    GameObject frontCard; 
+    GameObject backCard;
 
-    void Awake()
-    {
-        isFlipped = false;
-        isMatched = false;
-        isInvoke = false;
-        }
     public enum CardType { 
         bloqueo,
         cero,
@@ -29,7 +26,7 @@ public class CardScriptObject : ScriptableObject
         siete};
     public CardType cardType;
 
- 
+    
     public bool GetItsMatched()
     {
         return isMatched;

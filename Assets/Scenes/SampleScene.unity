@@ -377,52 +377,19 @@ MonoBehaviour:
   screeHeight: 1920
   margin: 5
   ListSelectedCards:
-  - {fileID: 11400000, guid: f5e68d65858e8e237b7a530459c60014, type: 2}
-  - {fileID: 11400000, guid: 968c45f4a4e638243b3e4d89bbfff6c1, type: 2}
-  - {fileID: 11400000, guid: 38c40c821e91a4b07ab1b75c68e07eeb, type: 2}
-  - {fileID: 11400000, guid: 5b46f4f6d26f0ef3cb53d89c19abdbf5, type: 2}
-  - {fileID: 11400000, guid: c47de0a15355f10e7aeae269b0a4b29d, type: 2}
-  - {fileID: 11400000, guid: 1294604d2d98d4e14aae8228c0cd21c8, type: 2}
-  - {fileID: 11400000, guid: 76f768d4ba9f7d52fafd6d38bbbba42a, type: 2}
-  - {fileID: 11400000, guid: 0267bd878221402d980fdea970c43518, type: 2}
-  - {fileID: 11400000, guid: edf77a64c3ea9688281b0dac80ee75f6, type: 2}
-  - {fileID: 11400000, guid: e7681a95fdc596abfb2980f68290f84c, type: 2}
-  - {fileID: 11400000, guid: 8fe6e7f754787da2c87e5f000d99ca65, type: 2}
-  - {fileID: 11400000, guid: d53155a9800f275ffbe9bfed9acbe38f, type: 2}
-  - {fileID: 11400000, guid: c78a49f06ca6641b7b32ee8bfb415861, type: 2}
-  - {fileID: 11400000, guid: 193b65e6b491bea41967337d99bff8fd, type: 2}
-  - {fileID: 11400000, guid: 6fcadb83aebe405a8b8245c6a1aa8764, type: 2}
-  - {fileID: 11400000, guid: 2b3538be41f6fec1daa8bc207c4ee67e, type: 2}
-  ListVerificatedCards: []
+  - {fileID: 7976784601201459231, guid: 3e8fe16339f48713cb58c596e90d0c07, type: 3}
+  - {fileID: 5924073582866361465, guid: 47894377d18c23e95a0cd1f3af592dc2, type: 3}
+  - {fileID: 9042512289625980160, guid: ad2ab18ba3bef7a468ba05d4e117cd61, type: 3}
+  - {fileID: 7497778815548578198, guid: 45f737fc2bca074f49c9602a5632d411, type: 3}
+  - {fileID: 5889277211159949667, guid: 26bbdec1102e31bf5a8cce8af4e3293d, type: 3}
+  - {fileID: 8011833224064083236, guid: 1e8e6482c3df766dbba0014cdf03f9d2, type: 3}
+  - {fileID: 2995373113538848450, guid: 2cbda8a86987d2eae85c3f0fde533b75, type: 3}
+  - {fileID: 4722092492191106113, guid: 46dfe7995be3268b7bbd48e80f1b3fbc, type: 3}
+  ListCopy: []
   card: {fileID: 2775403599080524157, guid: ec6728087268aa31c897c29888a94b9d, type: 3}
-  availableCards:
-  - {fileID: 2715744398967971804, guid: b052f0329f9757726b050b70996ec2b5, type: 3}
-  - {fileID: 183235616384968897, guid: 28e9afd1b137ea1a094a27e68dfd365c, type: 3}
-  - {fileID: 6138326652886046330, guid: 88cbbaabb7ab0221297b7110c05db102, type: 3}
-  - {fileID: 643523555692351030, guid: 94ae256c9bbd265f899dd9e32468e550, type: 3}
-  - {fileID: 2715744398967971804, guid: b052f0329f9757726b050b70996ec2b5, type: 3}
-  - {fileID: 183235616384968897, guid: 28e9afd1b137ea1a094a27e68dfd365c, type: 3}
-  - {fileID: 6138326652886046330, guid: 88cbbaabb7ab0221297b7110c05db102, type: 3}
-  - {fileID: 643523555692351030, guid: 94ae256c9bbd265f899dd9e32468e550, type: 3}
-  ListAvaiblecards:
-  - {fileID: 2715744398967971804, guid: b052f0329f9757726b050b70996ec2b5, type: 3}
-  - {fileID: 183235616384968897, guid: 28e9afd1b137ea1a094a27e68dfd365c, type: 3}
-  - {fileID: 6138326652886046330, guid: 88cbbaabb7ab0221297b7110c05db102, type: 3}
-  - {fileID: 643523555692351030, guid: 94ae256c9bbd265f899dd9e32468e550, type: 3}
-  - {fileID: 4889060087976694685, guid: 1e8e6482c3df766dbba0014cdf03f9d2, type: 3}
-  - {fileID: 8211159372892476365, guid: 2cbda8a86987d2eae85c3f0fde533b75, type: 3}
-  - {fileID: 6394383731473005648, guid: ad2ab18ba3bef7a468ba05d4e117cd61, type: 3}
-  - {fileID: 4015852486294436415, guid: 47894377d18c23e95a0cd1f3af592dc2, type: 3}
-  - {fileID: 4015852486294436415, guid: 47894377d18c23e95a0cd1f3af592dc2, type: 3}
-  - {fileID: 2715744398967971804, guid: b052f0329f9757726b050b70996ec2b5, type: 3}
-  - {fileID: 183235616384968897, guid: 28e9afd1b137ea1a094a27e68dfd365c, type: 3}
-  - {fileID: 6394383731473005648, guid: ad2ab18ba3bef7a468ba05d4e117cd61, type: 3}
-  - {fileID: 6138326652886046330, guid: 88cbbaabb7ab0221297b7110c05db102, type: 3}
-  - {fileID: 643523555692351030, guid: 94ae256c9bbd265f899dd9e32468e550, type: 3}
-  - {fileID: 4889060087976694685, guid: 1e8e6482c3df766dbba0014cdf03f9d2, type: 3}
-  - {fileID: 8211159372892476365, guid: 2cbda8a86987d2eae85c3f0fde533b75, type: 3}
   cardImages: {fileID: 0}
   cartaPrueba: {fileID: 0}
+  verifyCardEvent: 0
 --- !u!4 &832979847
 Transform:
   m_ObjectHideFlags: 0

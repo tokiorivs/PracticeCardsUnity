@@ -15,23 +15,17 @@ public class Board : MonoBehaviour
     float cardHeight;
     public float margin;
 
-    public List<CardScriptObject> ListSelectedCards;
-    public List<CardScriptObject> ListVerificatedCards;
-    // public List<CardScriptObject> NewListSelectedCards;
-
-    [SerializeField] List<CardScriptObject> pairCards;
+    public List<GameObject> ListSelectedCards;
+    public List<GameObject> ListCopy;
+    public List<GameObject> ListOnGame;
 
     public GameObject card;
     float newPosX;
     float newPosY;
-    public GameObject[] availableCards;
 
-    public List<GameObject> ListAvaiblecards;
     public CardImages cardImages;
     public GameObject cartaPrueba;
     public bool verifyCardEvent = false;
-    CardScriptObject cardOne;
-    CardScriptObject cardTwo;
 
 
 
@@ -40,73 +34,78 @@ public class Board : MonoBehaviour
         RectTransform CardRectTransform = card.GetComponent<RectTransform>();
         cardWidth = CardRectTransform.sizeDelta.x;
         cardHeight = CardRectTransform.sizeDelta.y;
-        
+        ListCopy = new List<GameObject>();
+
     }
 
     void Start()
     {
         // CameraPosition();}
         Debug.Log("empezo el start");
+        ListCopy = DuplicateCards(ListSelectedCards, ListCopy);
+        ListOnGame = new List<GameObject>(ListCopy);
+        restartList(ListCopy);
         CreateBoard();
         SetupCards();
-        ListAvaiblecards = new List<GameObject>(availableCards);
-        ListSelectedCards = new List<CardScriptObject>();
-        ListVerificatedCards = new List<CardScriptObject>();
+
+    }
+    public bool getCardEvent()
+    {
+        return verifyCardEvent;
+    }
+    public bool SetCardEvent(bool cardEvent)
+    {
+        verifyCardEvent = cardEvent;
+        return verifyCardEvent;
 
     }
     void SetupCards()
     {
 
-        restartGame();
         for (int i = 0; i < boardWidth; i++)
         {
 
-            int j = 0;
-            while ( j < boardHeight)
+            for (int j = 0; j < boardHeight; j++)
             {
                 float coordX = (i * (cardWidth * 1.05f)) + (1080 / 2) + ((boardWidth / 2) * -(cardWidth));
                 float coordY = (j * (cardHeight * 1.05f)) + (1920 / 2) + ((boardHeight / 2) * -(cardHeight));
 
                 //creamos una nueva carta de forma random de la lista de 16 scriptable cards disponibles
-                var selectedCardScriptObject = ListSelectedCards[UnityEngine.Random.Range(0, ListSelectedCards.Count)];
-                bool CardStateInvoke = selectedCardScriptObject.GetIsInvoke();
-                if (selectedCardScriptObject.GetIsInvoke()==false)
-                {
-                    Debug.Log("pasaste, el estado de la carta seleccionada es " + CardStateInvoke);
-
-                    var CardScriptObject = selectedCardScriptObject.GetCardButton();
-                    //creamos un nuevo componente
-                    GameObject newCard = Instantiate(CardScriptObject, new Vector3(coordX, coordY, -4), Quaternion.identity);
-                    newCard.transform.SetParent(this.transform);
-                    //cambiamos el estado a invocado para que no se vuelva a repetir en el tablero
-                    selectedCardScriptObject.SetIsInvoke(true);
-                    j++;
-                }else
-                {
-                    Debug.Log("no paso, el estado de la carta es " + selectedCardScriptObject.GetIsInvoke());
-
-                }
-
+                var cardObject = ListCopy[UnityEngine.Random.Range(0, ListCopy.Count)];
+                var cardInfo = cardObject.GetComponent<CardImages>();
+                bool cardStateInvoke = cardInfo.GetIsInvoke();
+                Debug.Log(cardStateInvoke);
+                    GameObject newCards = Instantiate(cardObject, new Vector3(coordX, coordY, -4), Quaternion.identity);
+                    ListCopy.Remove(cardObject);
+                    newCards.transform.SetParent(this.transform);
+                    cardInfo.SetIsInvoke(true);
             }
 
         }
     }
-    public void saludo()
+    public void CardVerification()
     {
-        Debug.Log("saludo");
+        CardImages card_1 = new CardImages(); // Assign a value to the 'card_1' variable.
+        card_1.GetCardType();
     }
-    public void compareCards(CardScriptObject cardOne, CardScriptObject cardTwo)
+    public List<GameObject> DuplicateCards(List<GameObject> lista, List<GameObject> listToCopy)
     {
-        
 
-    }
-
-    void restartGame()
-    {
-        for( int i = 0; i < ListSelectedCards.Count; i++)
+        for( int i = 0; i < lista.Count; i++)
         {
-           ListSelectedCards[i].SetIsInvoke(false); 
-           Debug.Log("la carta "+ ListSelectedCards[i] +"esta en modo " +ListSelectedCards[i].GetIsInvoke());
+            listToCopy.Add(lista[i]);
+            listToCopy.Add(lista[i]);
+        }
+        return listToCopy;
+
+    }
+
+    void restartList(List<GameObject> list)
+    {
+        for( int i = 0; i < ListCopy.Count; i++)
+        {
+           list[i].GetComponent<CardImages>().SetIsInvoke(false); 
+           Debug.Log("la carta "+ list[i] +"esta en modo " +list[i].GetComponent<CardImages>().GetIsInvoke());
         }
     }
 

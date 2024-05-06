@@ -224,6 +224,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frontImage: {fileID: 2590812749567807208}
   backImage: {fileID: 8157797518137822044}
+  isFlipped: 0
+  isMatched: 0
+  isInvoke: 0
+  cardType: 
 --- !u!1 &8157797518137822044
 GameObject:
   m_ObjectHideFlags: 0
